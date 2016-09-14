@@ -3,7 +3,7 @@
 * and then create it, prepare it for mocking and then place it in the variables scope as 'model'. It is your
 * responsibility to update the model annotation instantiation path and init your model.
 */
-component extends="coldbox.system.testing.BaseModelTest" model="models.TodoService"{
+component extends="coldbox.system.testing.BaseModelTest" model="root.models.TodoService"{
 	
 	/*********************************** LIFE CYCLE Methods ***********************************/
 
@@ -13,6 +13,16 @@ component extends="coldbox.system.testing.BaseModelTest" model="models.TodoServi
 		
 		// init the model object
 		model.init();
+
+
+		//create a mock
+		todo = getMockBox().prepareMock( createObject("component","root.models.Todo") );
+		mockWireBox = getMockBox().createEmptyMock("coldbox.system.ioc.injector").$("getInstance",todo);
+		model.$property( propertyName="wirebox", mock=mockWireBox ); 
+
+
+		objectPopulator = getMockBox().createMock("coldbox.system.core.dynamic.BeanPopulator");
+		model.$property( propertyName="populator", mock=objectPopulator ); 
 	}
 
 	function afterAll(){
@@ -23,21 +33,23 @@ component extends="coldbox.system.testing.BaseModelTest" model="models.TodoServi
 	function run(){
 
 		describe( "TodoService Suite", function(){
-			
-			it( "should list", function(){
+
+			it( "should be an array of todos", function(){
+				var todos = model.list();
+                expect( todos ).toBeArray();
+			});
+
+			xit( "should save a todo", function(){
                 expect( false ).toBeTrue();
 			});
 
-			it( "should save", function(){
+			xit( "should delete a todo", function(){
                 expect( false ).toBeTrue();
 			});
 
-			it( "should delete", function(){
-                expect( false ).toBeTrue();
-			});
-
-			it( "should get", function(){
-                expect( false ).toBeTrue();
+			xit( "should get a todo", function(){
+				var myTodo = model.get( 1 );
+                expect( myTodo.id ).toBe( number );
 			});
 
 

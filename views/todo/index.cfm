@@ -1,3 +1,3 @@
 <cfoutput>
-<h1>todo.index</h1>
+<h1>Todo Manager</h1>
 </cfoutput>
