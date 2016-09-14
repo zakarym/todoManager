@@ -1,0 +1,40 @@
+{
+    "name":"Advanced APP Template",
+    "version":"1.0.0",
+    "author":"",
+    "slug":"cbtemplate-advanced-script",
+    "createPackageDirectory":false,
+    "type":"mvc",
+    "keywords":"",
+    "homepage":"",
+    "documentation":"",
+    "repository":{
+        "type":"",
+        "url":""
+    },
+    "bugs":"",
+    "shortDescription":"",
+    "contributors":[
+        
+    ],
+    "ignore":[
+        
+    ],
+    "devDependencies":{
+        "testbox":"2.3.0"
+    },
+    "installPaths":{
+        "coldbox":"coldbox",
+        "testbox":"testbox",
+        "cbdebugger":"modules/cbdebugger",
+        "cbmessagebox":"modules/cbmessagebox",
+        "cbvalidation":"modules/cbvalidation"
+    },
+    "dependencies":{
+        "coldbox":"^4.3.0+00002",
+        "cbdebugger":"^1.4.0+00008",
+        "testbox":"^2.3.0+00044",
+        "cbmessagebox":"^2.1.0+00027",
+        "cbvalidation":"^1.1.0+00012"
+    }
+}
