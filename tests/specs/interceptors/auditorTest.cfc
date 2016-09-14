@@ -3,7 +3,7 @@
 * and then create it, prepare it for mocking, and then place it in the variables scope as 'interceptor'. It is your
 * responsibility to update the interceptor annotation instantiation path.
 */
-component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="auditor"{
+component extends="coldbox.system.testing.BaseInterceptorTest" interceptor="interceptors.auditor"{
 	
 	/*********************************** LIFE CYCLE Methods ***********************************/
 
