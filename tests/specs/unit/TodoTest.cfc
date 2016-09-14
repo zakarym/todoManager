@@ -3,7 +3,7 @@
 * and then create it, prepare it for mocking and then place it in the variables scope as 'model'. It is your
 * responsibility to update the model annotation instantiation path and init your model.
 */
-component extends="coldbox.system.testing.BaseModelTest" model="models.Todo"{
+component extends="coldbox.system.testing.BaseModelTest" model="models.todo"{
 	
 	/*********************************** LIFE CYCLE Methods ***********************************/
 
@@ -22,7 +22,7 @@ component extends="coldbox.system.testing.BaseModelTest" model="models.Todo"{
 	
 	function run(){
 
-		describe( "Todo Suite", function(){
+		describe( "todo Suite", function(){
 			
 
 		});
