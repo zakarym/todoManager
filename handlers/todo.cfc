@@ -2,6 +2,8 @@
 * I am a new handler
 */
 component{
+
+	property name="todoService" inject="todoService";
 	
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
@@ -35,6 +37,7 @@ component{
     * index  
     */
     function index( event, rc, prc ){
+    	prc.todolist = todoService.list();
 		event.setView( "todo/index" );
 	}	
 
