@@ -53,6 +53,7 @@
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 				<!---About --->
 				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.cfm?fwreinit=1"><i class="glyphicon glyphicon-refresh"></i> fwreinit</a></li>
 					<li class="dropdown">
 						<a href="##" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="glyphicon glyphicon-info-sign"></i> About <b class="caret"></b>

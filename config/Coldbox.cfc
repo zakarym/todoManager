@@ -14,7 +14,7 @@
 			handlersIndexAutoReload = true,
 
 			//Implicit Events
-			defaultEvent			= "",
+			defaultEvent			= "todo.index",
 			requestStartHandler		= "Main.onRequestStart",
 			requestEndHandler		= "",
 			applicationStartHandler = "Main.onAppInit",
@@ -126,13 +126,12 @@
 			modelsLocation 	 = "models",
 			eventAction 	 = "index"
 		};
-
+		*/
+	
 		//Datasources
 		datasources = {
-			mysite   = {name="mySite", dbType="mysql", username="root", password="pass"},
-			blog_dsn = {name="myBlog", dbType="oracle", username="root", password="pass"}
+			todo   = {name="todo"}
 		};
-		*/
 
 	}
 
