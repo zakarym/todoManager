@@ -71,12 +71,17 @@ component singleton accessors="true"{
 			");
 		var qTodo = result.getResult();
 		
-		var oTodo = populator.populateFromStruct( 
-			target = wirebox.getInstance( "todo" ),
-			memento = qTodo
-		);
+		if(qTodo.recordcount) {
+			var oTodo = populator.populateFromQuery( 
+				target = wirebox.getInstance( "todo" ),
+				qry = qTodo,
+				1
+			);
 
-		return oTodo;
+			return oTodo;
+		} else {
+			throw(message = "There is no Todo record with id:#arguments.id#");
+		}
 		
 	}
 
