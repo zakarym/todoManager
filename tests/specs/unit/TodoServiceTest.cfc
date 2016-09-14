@@ -14,7 +14,6 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 		// init the model object
 		model.init();
 
-
 		//create a mock
 		todo = getMockBox().prepareMock( createObject("component","root.models.Todo") );
 		mockWireBox = getMockBox().createEmptyMock("coldbox.system.ioc.injector").$("getInstance",todo);
@@ -39,6 +38,11 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
                 expect( todos ).toBeArray();
 			});
 
+			it( "should get an todo object", function(){
+				var todoObject = model.get( 1 );
+                expect( todoObject.id ).toBeOfType( Numeric );
+			});
+
 			xit( "should save a todo", function(){
                 expect( false ).toBeTrue();
 			});
@@ -46,12 +50,6 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 			xit( "should delete a todo", function(){
                 expect( false ).toBeTrue();
 			});
-
-			xit( "should get a todo", function(){
-				var myTodo = model.get( 1 );
-                expect( myTodo.id ).toBe( number );
-			});
-
 
 		});
 
