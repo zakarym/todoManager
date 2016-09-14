@@ -74,8 +74,7 @@ component singleton accessors="true"{
 		if(qTodo.recordcount) {
 			var oTodo = populator.populateFromQuery( 
 				target = wirebox.getInstance( "todo" ),
-				qry = qTodo,
-				1
+				qry = qTodo
 			);
 
 			return oTodo;

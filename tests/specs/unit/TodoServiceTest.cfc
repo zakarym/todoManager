@@ -40,7 +40,7 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 
 			it( "should get an todo object", function(){
 				var todoObject = model.get( 1 );
-                expect( todoObject.id ).toBeOfType( Numeric );
+                expect( todoObject.getId() ).toBeOfType( "Numeric" );
 			});
 
 			xit( "should save a todo", function(){
