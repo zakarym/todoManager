@@ -43,13 +43,13 @@ component singleton accessors="true"{
 		queryObj.setDatasource(datasource.name);
 		queryObj.setName("qUpdateTodo");
 		queryObj.addParam(name="title",value="#arguments.title#",cfsqltype="varchar");
-		queryObj.addParam(name="description",value="#arguments.todo.description#",cfsqltype="varchar");
+		queryObj.addParam(name="description",value="#arguments.description#",cfsqltype="varchar");
 		queryObj.addParam(name="isdone",value="#arguments.isdone#",cfsqltype="bit");
 		queryObj.addParam(name="status",value="#arguments.status#",cfsqltype="integer");
 		queryObj.addParam(name="completiondate",value="#arguments.completiondate#",cfsqltype="date", null="#iif(len(arguments.completiondate), "No", "Yes")#");
 		queryObj.addParam(name="duedate",value="#arguments.duedate#",cfsqltype="date", null="#iif(len(arguments.duedate), "No", "Yes")#");
 
-		if(! isNull( arguments.id() )) {
+		if(! isNull( arguments.id )) {
 			queryObj.addParam(name="id",value="#arguments.id#",cfsqltype="integer");
 
 			var result = queryObj.execute(sql="

@@ -19,6 +19,9 @@ component accessors="true"{
      */
 	todo function init(){
 		variables.status = 0;
+		variables.duedate = DateAdd('d',10,now());
+		variables.completiondate = "";
+
 		return this;
 	}
 	
