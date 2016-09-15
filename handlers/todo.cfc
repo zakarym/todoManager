@@ -64,16 +64,10 @@ component{
     * editor  
     */
     function editor( event, rc, prc ){
-		/*event.paramValue( "rc.id", 0);
-		if(not isNumeric(rc.id)){
+		if(not structKeyExists(rc,"id")){
 			rc.id=0;
 		}
-
-			rc.todoResultSet = todoService.get(rc.id);
-
-
-			writedump(rc.todoResultSet);
-		*/
+		rc.todoResultSet = todoService.get(rc.id);
 		event.setView( "todo/editor" );
 	}	
 

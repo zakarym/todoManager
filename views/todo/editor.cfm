@@ -6,15 +6,15 @@
 		<tr class="row">
 			<td class="col">Title:</td>
 			<td class="col">
-				<input type="text" id="title" name="title" value="">
-				<input type="hidden" id="id" name="id" value="">
+				<input type="text" id="title" name="title" value="#rc.todoResultSet.getTitle()#">
+				<input type="hidden" id="id" name="id" value="#rc.todoResultSet.getID()#">
 
 			</td>
 		</tr>
 		<tr class="row">
 			<td class="col">Description:</td>
 			<td class="col">
-				<textarea id="description" name="description" ></textarea>
+				<textarea id="description" name="description" cols="80" rows="5">#rc.todoResultSet.getDescription()#</textarea>
 			</td>
 		</tr>
 		<tr class="row">
