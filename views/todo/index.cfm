@@ -1,6 +1,3 @@
 <cfoutput>
-<h1>Todo Manager</h1>
-
-<cfdump var="#prc.todolist#">
-
+<h1>todo.index</h1>
 </cfoutput>
