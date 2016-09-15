@@ -24,19 +24,19 @@ component extends="coldbox.system.testing.BaseModelTest" model="models.TodoDAO"{
 
 		describe( "TodoDAO Suite", function(){
 			
-			it( "should list", function(){
+			xit( "should list", function(){
                 expect( false ).toBeTrue();
 			});
 
-			it( "should save", function(){
+			xit( "should save", function(){
                 expect( false ).toBeTrue();
 			});
 
-			it( "should delete", function(){
+			xit( "should delete", function(){
                 expect( false ).toBeTrue();
 			});
 
-			it( "should get", function(){
+			xit( "should get", function(){
                 expect( false ).toBeTrue();
 			});
 

@@ -70,12 +70,11 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 			it( "editor", function(){
 				var event = execute( event="todo.editor", renderResults=true );
 				// expectations go here.
-				expect( event.getPrivateValue( name="todolist" ) ).toBeArray();
 				expect( event.getRenderedContent() ).toInclude( "submit" );
 			});
 
 			it( "save", function(){
-				var event = execute( event="todo.save", renderResults=true );
+				//var event = execute( event="todo.save", renderResults=true );
 				// expectations go here.
 				expect( false ).toBeTrue();
 			});
