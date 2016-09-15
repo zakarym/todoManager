@@ -1,30 +1,51 @@
 <cfoutput>
+
+<cfset theId = todo.getID()>
+
+<div class="todo-group-item clearfix todo-group-item--#todo.getStatus()#">
+	<div class="todo-group-item-summary">
+		<label for="isdone" class="todo-group-item-complete">
+			<input type="checkbox" name="isdone" value="#todo.getIsDone()#" id="isdone">
+		</label> 
+		<h4 class="todo-group-item-title">
+			<a role="button" data-toggle="collapse" href="##todo#theId#" aria-expanded="true" aria-controls="todo#theId#">#todo.getTitle()#</a>
+			<span class="badge">#todo.getDueDate()#</span>
+		</h4>
+		<div class="todo-group-item-details collapse clearfix" id="todo#theId#" role="tododetail" aria-labelledby="todo#theId#">
+			<p class="todo-group-item-description">#todo.getDescription()#</p>
+
+			<ul class="todo-group-item-dates">
+				<li class="todo-group-item-date-created badge">Created: #Dateformat(todo.getCreateDate(),"mmm-dd-yyyy")# #timeformat(todo.getCreateDate(),"hh:mm:ss")#</li>
+				<cfif len(trim(todo.getDueDate()))><li class="todo-group-item-date-due badge">Due: #todo.getDueDate()#</li></cfif>
+				<cfif len(trim(todo.getDueDate()))><li class="todo-group-item-date-complete badge">Completed: #todo.getCompletionDate()#</li></cfif>
+			</ul>
+		</div>
+	</div>
+	<div class="todo-group-item-actions">
+		<form class="form-inline-block" method="post" action="#event.buildLink('todo/editor')#" name="editForm#theId#">
+			<button type="submit" class="btn btn-primary btn-xs">Edit</button>
+			<input type="hidden" name="id" id="id" value="#theId#">
+		</form>
+		<form class="form-inline-block" method="post" action="#event.buildLink('todo/delete')#" name="editForm#theId#">
+			<button type="submit" class="btn btn-primary btn-xs">Delete</button>
+			<input type="hidden" name="id" id="id" value="#theId#">
+		</form>
+	</div>
+</div>
+
+	<!---
 	<tr>
 		<td>
-			<cfset theId = todo.getID()>
-			#theId#
-			<br>
-			<form method="post" action="#event.buildLink('todo/delete')#" name="editForm#theId#">
-				<button type="submit">Delete</button>
-				<input type="hidden" name="id" id="id" value="#theId#">
-			</form>
-			<form method="post" action="#event.buildLink('todo/editor')#" name="editForm#theId#">
-				<button type="submit">Edit</button>
-				<input type="hidden" name="id" id="id" value="#theId#">
-			</form>
+			#html.inputField( type="checkbox", name="isdone", value=todo.getIsDone(), groupWrapper="label class=radio-inline" )#
+		</td>
+		<td>
+			#todo.getID()#
 		</td>
 		<td>
 			#todo.getTitle()#
 		</td>
 		<td>
 			#todo.getDescription()#
-		</td>
-		<td>
-			<cfif todo.getIsDone() eq 1>
-				Completed
-			<cfelse>
-				Incomplete	
-			</cfif> 
 		</td>
 		<td>
 			#todo.getStatus()#
@@ -38,6 +59,11 @@
 		<td>
 			#todo.getDueDate()#
 		</td>
-
+		<td class="text-right">
+			<a href="#event.buildLink('todo/editor?#todo.getID()#')#" class="btn btn-primary">
+				Edit	
+			</a>
+		</td>
 	</tr>
+	--->
 </cfoutput>

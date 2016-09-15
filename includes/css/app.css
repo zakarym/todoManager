@@ -1,0 +1,255 @@
+	.form-inline-block {
+		display: inline-block;
+	}
+	.todo-group-item.active .todo-group-item-title > .badge {
+	  color: #337ab7;
+	  background-color: #fff;
+	}
+	.todo-group-item-title > .badge {
+	  float: right;
+	}
+	.todo-group-item-title > .badge + .badge {
+	  margin-right: 5px;
+	}
+
+	.todo-group {
+	  padding-left: 0;
+	  margin-bottom: 20px;
+	}
+	.todo-group-item {
+	  position: relative;
+	  display: block;
+	  padding: 10px 15px;
+	  margin-bottom: -1px;
+	  background-color: #fff;
+	  border: 1px solid #ddd;
+	}
+	.todo-group-item:first-child {
+	  border-top-left-radius: 4px;
+	  border-top-right-radius: 4px;
+	}
+	.todo-group-item:last-child {
+	  margin-bottom: 0;
+	  border-bottom-right-radius: 4px;
+	  border-bottom-left-radius: 4px;
+	}
+	a.todo-group-item,
+	button.todo-group-item {
+	  color: #555;
+	}
+	a.todo-group-item .todo-group-item-title,
+	button.todo-group-item .todo-group-item-title {
+	  color: #333;
+	}
+	a.todo-group-item:hover,
+	button.todo-group-item:hover,
+	a.todo-group-item:focus,
+	button.todo-group-item:focus {
+	  color: #555;
+	  text-decoration: none;
+	  background-color: #f5f5f5;
+	}
+	button.todo-group-item {
+	  width: 100%;
+	  text-align: left;
+	}
+	.todo-group-item.disabled,
+	.todo-group-item.disabled:hover,
+	.todo-group-item.disabled:focus {
+	  color: #777;
+	  cursor: not-allowed;
+	  background-color: #eee;
+	}
+	.todo-group-item.disabled .todo-group-item-title,
+	.todo-group-item.disabled:hover .todo-group-item-title,
+	.todo-group-item.disabled:focus .todo-group-item-title {
+	  color: inherit;
+	}
+	.todo-group-item.disabled .todo-group-item-text,
+	.todo-group-item.disabled:hover .todo-group-item-text,
+	.todo-group-item.disabled:focus .todo-group-item-text {
+	  color: #777;
+	}
+	.todo-group-item.active,
+	.todo-group-item.active:hover,
+	.todo-group-item.active:focus {
+	  z-index: 2;
+	  color: #fff;
+	  background-color: #337ab7;
+	  border-color: #337ab7;
+	}
+	.todo-group-item.active .todo-group-item-title,
+	.todo-group-item.active:hover .todo-group-item-title,
+	.todo-group-item.active:focus .todo-group-item-title,
+	.todo-group-item.active .todo-group-item-title > small,
+	.todo-group-item.active:hover .todo-group-item-title > small,
+	.todo-group-item.active:focus .todo-group-item-title > small,
+	.todo-group-item.active .todo-group-item-title > .small,
+	.todo-group-item.active:hover .todo-group-item-title > .small,
+	.todo-group-item.active:focus .todo-group-item-title > .small {
+	  color: inherit;
+	}
+	.todo-group-item.active .todo-group-item-text,
+	.todo-group-item.active:hover .todo-group-item-text,
+	.todo-group-item.active:focus .todo-group-item-text {
+	  color: #c7ddef;
+	}
+	.todo-group-item-success {
+	  color: #3c763d;
+	  background-color: #dff0d8;
+	}
+	a.todo-group-item-success,
+	button.todo-group-item-success {
+	  color: #3c763d;
+	}
+	a.todo-group-item-success .todo-group-item-title,
+	button.todo-group-item-success .todo-group-item-title {
+	  color: inherit;
+	}
+	a.todo-group-item-success:hover,
+	button.todo-group-item-success:hover,
+	a.todo-group-item-success:focus,
+	button.todo-group-item-success:focus {
+	  color: #3c763d;
+	  background-color: #d0e9c6;
+	}
+	a.todo-group-item-success.active,
+	button.todo-group-item-success.active,
+	a.todo-group-item-success.active:hover,
+	button.todo-group-item-success.active:hover,
+	a.todo-group-item-success.active:focus,
+	button.todo-group-item-success.active:focus {
+	  color: #fff;
+	  background-color: #3c763d;
+	  border-color: #3c763d;
+	}
+	.todo-group-item-info {
+	  color: #31708f;
+	  background-color: #d9edf7;
+	}
+	a.todo-group-item-info,
+	button.todo-group-item-info {
+	  color: #31708f;
+	}
+	a.todo-group-item-info .todo-group-item-title,
+	button.todo-group-item-info .todo-group-item-title {
+	  color: inherit;
+	}
+	a.todo-group-item-info:hover,
+	button.todo-group-item-info:hover,
+	a.todo-group-item-info:focus,
+	button.todo-group-item-info:focus {
+	  color: #31708f;
+	  background-color: #c4e3f3;
+	}
+	a.todo-group-item-info.active,
+	button.todo-group-item-info.active,
+	a.todo-group-item-info.active:hover,
+	button.todo-group-item-info.active:hover,
+	a.todo-group-item-info.active:focus,
+	button.todo-group-item-info.active:focus {
+	  color: #fff;
+	  background-color: #31708f;
+	  border-color: #31708f;
+	}
+	.todo-group-item-warning {
+	  color: #8a6d3b;
+	  background-color: #fcf8e3;
+	}
+	a.todo-group-item-warning,
+	button.todo-group-item-warning {
+	  color: #8a6d3b;
+	}
+	a.todo-group-item-warning .todo-group-item-title,
+	button.todo-group-item-warning .todo-group-item-title {
+	  color: inherit;
+	}
+	a.todo-group-item-warning:hover,
+	button.todo-group-item-warning:hover,
+	a.todo-group-item-warning:focus,
+	button.todo-group-item-warning:focus {
+	  color: #8a6d3b;
+	  background-color: #faf2cc;
+	}
+	a.todo-group-item-warning.active,
+	button.todo-group-item-warning.active,
+	a.todo-group-item-warning.active:hover,
+	button.todo-group-item-warning.active:hover,
+	a.todo-group-item-warning.active:focus,
+	button.todo-group-item-warning.active:focus {
+	  color: #fff;
+	  background-color: #8a6d3b;
+	  border-color: #8a6d3b;
+	}
+	.todo-group-item-danger {
+	  color: #a94442;
+	  background-color: #f2dede;
+	}
+	a.todo-group-item-danger,
+	button.todo-group-item-danger {
+	  color: #a94442;
+	}
+	a.todo-group-item-danger .todo-group-item-title,
+	button.todo-group-item-danger .todo-group-item-title {
+	  color: inherit;
+	}
+	a.todo-group-item-danger:hover,
+	button.todo-group-item-danger:hover,
+	a.todo-group-item-danger:focus,
+	button.todo-group-item-danger:focus {
+	  color: #a94442;
+	  background-color: #ebcccc;
+	}
+	a.todo-group-item-danger.active,
+	button.todo-group-item-danger.active,
+	a.todo-group-item-danger.active:hover,
+	button.todo-group-item-danger.active:hover,
+	a.todo-group-item-danger.active:focus,
+	button.todo-group-item-danger.active:focus {
+	  color: #fff;
+	  background-color: #a94442;
+	  border-color: #a94442;
+	}
+	.todo-group-item-summary {
+		position: relative;
+		float: left;
+		width: 80%;
+	}
+		.todo-group-item-complete {
+			display: block;
+			float: left;
+			text-align: center;
+			width: 10%;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		.todo-group-item-title {
+			display: block;
+			float: left;
+			width: 90%;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		.todo-group-item-actions {
+		  float: left;
+		  width: 20%;
+		  text-align: right;
+		}
+
+	.todo-group-item-details {
+		float: left;
+		margin: 0 0 0 10%;
+		clear: both;
+	}
+		.todo-group-item-description {
+		  margin-bottom: 0;
+		  line-height: 1.3;
+		}
+		.todo-group-item-dates {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.todo-group-item-dates > .badge {
+			background: #d0d0d0;
+		}

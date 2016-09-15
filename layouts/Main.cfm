@@ -10,6 +10,7 @@
 	<base href="#event.getHTMLBaseURL()#" />
 	<!---css --->
 	<link href="includes/css/bootstrap.min.css" rel="stylesheet">
+	<link href="includes/css/app.css" rel="stylesheet">
 	<!---js --->
     <script src="includes/js/jquery.js"></script>
 	<script src="includes/js/bootstrap.min.js"></script>
