@@ -4,13 +4,21 @@
 component accessors="true"{
 	
     // Properties
-    property name="id" type="string";	property name="title" type="string";	property name="description" type="string";	property name="isdone" type="string";	property name="status" type="string";	property name="createdate" type="string";	property name="completeDate" type="string";	property name="duedate" type="string";	
+    property name="id" type="string";
+	property name="title" type="string";
+	property name="description" type="string";
+	property name="isdone" type="string";
+	property name="status" type="string";
+	property name="createdate" type="string";
+	property name="completiondate" type="string";
+	property name="duedate" type="string";
+	
 
     /**
      * Constructor
      */
 	todo function init(){
-		
+		variables.status = 0;
 		return this;
 	}
 	

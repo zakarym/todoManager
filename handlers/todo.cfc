@@ -66,7 +66,12 @@ component{
     * save  
     */
     function save( event, rc, prc ){
-		event.setView( "todo/save" );
+		var oTodo = getInstance("todo");
+		event.paramValue( "isdone", 0);
+		populateModel(model=oTodo,momento=rc);
+		//writedump(oTodo);abort;
+		todoService.save(oTodo);
+		setNextEvent( "todo/index" );
 	}	
 
 	/**

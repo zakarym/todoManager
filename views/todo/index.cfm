@@ -2,6 +2,12 @@
 
 
 	<h1>Todo Manager</h1>
+
+	<div>
+		<a href="#event.buildLink('todo/editor')#">
+			Add	
+		</a>
+	</div>
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr>

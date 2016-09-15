@@ -23,7 +23,7 @@
 			#Dateformat(todo.getCreateDate(),"mmm-dd-yyyy")# #timeformat(todo.getCreateDate(),"hh:mm:ss")#
 		</td>
 		<td>
-			#todo.getCompleteDate()#
+			#todo.getCompletionDate()#
 		</td>
 		<td>
 			#todo.getDueDate()#
