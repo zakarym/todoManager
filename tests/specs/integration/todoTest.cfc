@@ -32,17 +32,27 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 	
 	function run(){
 
-		xdescribe( "todo Suite", function(){
+		describe( "todo Suite", function(){
 
 			beforeEach(function( currentSpec ){
 				// Setup as a new ColdBox request for this suite, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.
 				setup();
 			});
 
-			it( "index", function(){
+			it( "can show all todos", function(){
 				var event = execute( event="todo.index", renderResults=true );
 				// expectations go here.
-				expect( false ).toBeTrue();
+				expect( event.getPrivateValue( name="todolist" ) ).toBeArray();
+				expect( event.getRenderedContent() ).toInclude( "Incomplete" );
+			});
+
+			it( "it can render output as JSON", function(){
+				getRequestContext().setValue( "format", "json" );
+				var event = execute( event="todo.index", renderResults=true );
+				expect( event.getPrivateValue( name="todolist" ) ).toBeArray();
+				//debug( event.getRenderedContent() );
+				var data = event.getRenderedContent();
+				expect( isJSON(data) ).toBeTrue();
 			});
 
 			it( "status", function(){
@@ -60,7 +70,8 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 			it( "editor", function(){
 				var event = execute( event="todo.editor", renderResults=true );
 				// expectations go here.
-				expect( false ).toBeTrue();
+				expect( event.getPrivateValue( name="todolist" ) ).toBeArray();
+				expect( event.getRenderedContent() ).toInclude( "submit" );
 			});
 
 			it( "save", function(){
