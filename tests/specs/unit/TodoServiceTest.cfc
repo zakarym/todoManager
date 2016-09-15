@@ -38,17 +38,80 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
                 expect( todos ).toBeArray();
 			});
 
-			it( "should get an todo object", function(){
-				var todoObject = model.get( 1 );
-                expect( todoObject.getId() ).toBeTypeOf( "Numeric" );
+			it( "should get a todo object", function(){
+				var oTodo = model.get( 1 );
+                expect( oTodo.getId() ).toBeTypeOf( "Numeric" );
 			});
 
-			xit( "should save a todo", function(){
-                expect( false ).toBeTrue();
+			it( "should add a new todo object", function(){
+				transaction{
+					var oTodo = getMockBox().prepareMock( createObject("component","root.models.Todo") );
+
+					oTodo.$( "getId" )
+						.$( "getTitle", "Test Todo" )
+						.$( "getDescription", "This is a test todo" )
+						.$( "getIsdone", 0 )
+						.$( "getStatus", 1 )
+						.$( "getCreatedate", "2016-09-14" )
+						.$( "getCompletiondate", "2016-09-16" )
+						.$( "getDuedate", "2016-09-16" );
+
+					var oTodo = model.save( oTodo );
+                	expect( oTodo ).toBeTypeOf( "Numeric" );	
+					transactionRollback();				
+				}
 			});
 
-			xit( "should delete a todo", function(){
-                expect( false ).toBeTrue();
+			it( "should delete an existing todo object", function(){
+				transaction{
+					var oTodo = getMockBox().prepareMock( createObject("component","root.models.Todo") );
+
+					oTodo.$( "getId" )
+						.$( "getTitle", "Test Todo" )
+						.$( "getDescription", "This is a test todo" )
+						.$( "getIsdone", 0 )
+						.$( "getStatus", 0 )
+						.$( "getCreatedate", "2016-09-14" )
+						.$( "getCompletiondate", "2016-09-16" )
+						.$( "getDuedate", "2016-09-16" );
+
+					var oTodo = model.save( oTodo );
+					var oTodo = model.delete( oTodo );
+                	expect( oTodo ).toBeTrue();	
+					transactionRollback();				
+				}
+			});
+
+
+			it( "should modify an existing todo object", function(){
+				transaction{
+					var oTodo = getMockBox().prepareMock( createObject("component","root.models.Todo") );
+
+					oTodo.$( "getId" )
+						.$( "getTitle", "Test Todo" )
+						.$( "getDescription", "This is a test todo" )
+						.$( "getIsdone", 0 )
+						.$( "getStatus", 0 )
+						.$( "getCreatedate", "2016-09-14" )
+						.$( "getCompletiondate", "2016-09-16" )
+						.$( "getDuedate", "2016-09-16" );
+
+					var oTodoId = model.save( oTodo );
+
+					oTodo.$( "getId", oTodoId )
+						.$( "getTitle", "Updated Test Todo" )
+						.$( "getDescription", "This is an updated test todo" )
+						.$( "getIsdone", 1 )
+						.$( "getStatus", 1 )
+						.$( "getCreatedate", "2016-09-14" )
+						.$( "getCompletiondate", "2016-09-17" )
+						.$( "getDuedate", "2016-09-17" );
+
+					var oTodo = model.save( oTodo );
+                	expect( oTodo ).toBeTypeOf( "Numeric" );
+
+					transactionRollback();				
+				}
 			});
 
 		});

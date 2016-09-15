@@ -53,10 +53,11 @@ component singleton accessors="true"{
 		queryObj.addParam(name="description",value="#arguments.todo.getDescription()#",cfsqltype="varchar");
 		queryObj.addParam(name="isdone",value="#arguments.todo.getIsdone()#",cfsqltype="bit");
 		queryObj.addParam(name="status",value="#arguments.todo.getStatus()#",cfsqltype="integer");
-		queryObj.addParam(name="completiondate",value="#arguments.todo.getCompletiondate()#",cfsqltype="datetime");
-		queryObj.addParam(name="duedate",value="#arguments.todo.getDuedate()#",cfsqltype="datetime");
+		queryObj.addParam(name="createdate",value="#arguments.todo.getCreatedate()#",cfsqltype="date");
+		queryObj.addParam(name="completiondate",value="#arguments.todo.getCompletiondate()#",cfsqltype="date");
+		queryObj.addParam(name="duedate",value="#arguments.todo.getDuedate()#",cfsqltype="date");
 
-		if(arguments.todo.getId() is not NULL) {
+		if(! isNull( arguments.todo.getId() )) {
 			queryObj.addParam(name="id",value="#arguments.todo.getId()#",cfsqltype="integer");
 
 			var result = queryObj.execute(sql="
@@ -75,13 +76,14 @@ component singleton accessors="true"{
 		} else {
 			var result = queryObj.execute(sql="
 					SET nocount ON
-					INERT INTO todo 
+					INSERT INTO todo 
 					(title,description,isdone,status,createdate,completiondate,duedate)
 					VALUES
 					(:title,:description,:isdone,:status,:createdate,:completiondate,:duedate)
-					SELECT scope_indentity() as id
+					SELECT SCOPE_IDENTITY() as id
 					SET nocount OFF
 				");
+
 			return result.getResult().id[1];
 		}
 	}
@@ -94,13 +96,14 @@ component singleton accessors="true"{
 		queryObj.setDatasource("todo");
 		queryObj.setName("qDeleteTodo");
 		queryObj.addParam(name="id",value="#arguments.id#",cfsqltype="integer");
+		
 		var result = queryObj.execute(sql="
-				DLETE
+				DELETE
 				FROM todo 
 				WHERE id = :id
 			");
-		
-		return ture
+
+		return true;
 	}
 
 	/**
