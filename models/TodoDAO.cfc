@@ -58,7 +58,6 @@ component singleton accessors="true"{
 					description = :description,
 					isdone = :isdone,
 					status = :status,
-					createdate = getDate(),
 					completiondate = :completiondate,
 					duedate = :duedate
 				WHERE id = :id
