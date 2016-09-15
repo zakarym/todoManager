@@ -20,7 +20,7 @@
 			#todo.getStatus()#
 		</td>
 		<td>
-			#todo.getCreateDate()#
+			#Dateformat(todo.getCreateDate(),"mmm-dd-yyyy")# #timeformat(todo.getCreateDate(),"hh:mm:ss")#
 		</td>
 		<td>
 			#todo.getCompleteDate()#
