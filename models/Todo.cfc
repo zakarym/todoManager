@@ -18,9 +18,13 @@ component accessors="true"{
      * Constructor
      */
 	todo function init(){
+		variables.title="";
+		variables.description="";
+		variables.isdone = 0;
 		variables.status = 0;
 		variables.duedate = DateAdd('d',10,now());
 		variables.completiondate = "";
+		variables.createdate = "";
 
 		return this;
 	}

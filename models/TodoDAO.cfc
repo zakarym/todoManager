@@ -39,6 +39,8 @@ component singleton accessors="true"{
 			required status, 
 			required completiondate, 
 			required duedate){
+
+
 		var queryObj = new query();
 		queryObj.setDatasource(datasource.name);
 		queryObj.setName("qUpdateTodo");
@@ -49,7 +51,8 @@ component singleton accessors="true"{
 		queryObj.addParam(name="completiondate",value="#arguments.completiondate#",cfsqltype="date", null="#iif(len(arguments.completiondate), "No", "Yes")#");
 		queryObj.addParam(name="duedate",value="#arguments.duedate#",cfsqltype="date", null="#iif(len(arguments.duedate), "No", "Yes")#");
 
-		if(! isNull( arguments.id )) {
+
+		if(! isNull( arguments.id ) and arguments.id neq "") {
 			queryObj.addParam(name="id",value="#arguments.id#",cfsqltype="integer");
 
 			var result = queryObj.execute(sql="
@@ -65,6 +68,7 @@ component singleton accessors="true"{
 
 			return arguments.id;
 		} else {
+
 			var result = queryObj.execute(sql="
 					SET nocount ON
 					INSERT INTO todo 

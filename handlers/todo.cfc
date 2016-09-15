@@ -53,13 +53,27 @@ component{
     * delete  
     */
     function delete( event, rc, prc ){
-		event.setView( "todo/delete" );
+		event.paramValue( "rc.id", 0);
+		if(isNumeric(rc.id)){
+			todoService.delete(rc.id);
+		}
+		setNextEvent( "todo/index" );
 	}	
 
 	/**
     * editor  
     */
     function editor( event, rc, prc ){
+		/*event.paramValue( "rc.id", 0);
+		if(not isNumeric(rc.id)){
+			rc.id=0;
+		}
+
+			rc.todoResultSet = todoService.get(rc.id);
+
+
+			writedump(rc.todoResultSet);
+		*/
 		event.setView( "todo/editor" );
 	}	
 
@@ -70,7 +84,6 @@ component{
 		var oTodo = getInstance("todo");
 		event.paramValue( "isdone", 0);
 		populateModel(model=oTodo,momento=rc);
-		//writedump(oTodo);abort;
 		todoService.save(oTodo);
 		messagebox.warn( "Todo saved successfully" );
 		setNextEvent( "todo/index" );

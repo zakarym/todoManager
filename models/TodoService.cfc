@@ -65,16 +65,16 @@ component singleton accessors="true"{
 	function get(required numeric id){
 		var qGetTodo = todoDAO.get(arguments.id);
 		
-		if(qGetTodo.recordcount) {
+		//if(qGetTodo.recordcount) {
 			var oTodo = populator.populateFromQuery( 
 				target = wirebox.getInstance( "todo" ),
 				qry = qGetTodo
 			);
 
 			return oTodo;
-		} else {
-			throw(message = "There is no Todo record with id:#arguments.id#");
-		}
+		//} else {
+		//	throw(message = "There is no Todo record with id:#arguments.id#");
+		//}
 		
 	}
 
