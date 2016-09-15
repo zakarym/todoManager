@@ -22,7 +22,7 @@
 			<td class="col"><input type="checkbox" id="isdone" name="isdone" value="1"></td>
 		</tr>
 		<tr class="row">
-			<td class="col" colspan="2"><button >Add</button></td>
+			<td class="col" colspan="2"><button ><cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0>Add<cfelse>Edit</cfif></button></td>
 			
 		</tr>
 	</table>
