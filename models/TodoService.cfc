@@ -63,7 +63,7 @@ component singleton accessors="true"{
 	* get
 	*/
 	function get(required numeric id){
-		var qGetTodo = todoDAO.delete(arguments.id);
+		var qGetTodo = todoDAO.get(arguments.id);
 		
 		if(qGetTodo.recordcount) {
 			var oTodo = populator.populateFromQuery( 

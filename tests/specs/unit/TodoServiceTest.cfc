@@ -19,7 +19,18 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 		mockWireBox.$("getInstance",todo);
 		model.$property( propertyName="wirebox", mock=mockWireBox ); 
 
-		model.$property( propertyName="datasource", mock={ name="todo" } );
+		todoDAO = getMockBox().createEmptyMock( "root.models.TodoDAO" )
+			.$("list",querySim( "id,title,description,isdone,status,createdate,completiondate,duedate
+				1|Test1|Description for Test1|0|0|09/15/2016|09/15/2016|09/15/2016
+				2|Test2|Description for Test2|0|0|09/15/2016|09/15/2016|09/15/2016
+				3|Test3|Description for Test3|0|0|09/15/2016|09/15/2016|09/15/2016
+				" ))
+			.$("delete",true)
+			.$("save",1)
+			.$("get",querySim( "id,title,description,isdone,status,createdate,completiondate,duedate
+				1|Test1|Description for Test1|0|0|09/15/2016|09/15/2016|09/15/2016
+				" ));
+		model.$property( propertyName="todoDAO", mock=todoDAO );
 
 		objectPopulator = getMockBox().createMock("coldbox.system.core.dynamic.BeanPopulator");
 		model.$property( propertyName="populator", mock=objectPopulator ); 
