@@ -3,6 +3,7 @@
 */
 component{
 
+	property name="messagebox" inject="messagebox@cbmessagebox";
 	property name="todoService" inject="todoService";
 	
 	// OPTIONAL HANDLER PROPERTIES
@@ -71,6 +72,7 @@ component{
 		populateModel(model=oTodo,momento=rc);
 		//writedump(oTodo);abort;
 		todoService.save(oTodo);
+		messagebox.warn( "Todo saved successfully" );
 		setNextEvent( "todo/index" );
 	}	
 

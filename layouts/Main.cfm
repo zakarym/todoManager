@@ -76,7 +76,10 @@
 	</nav> <!---end navbar --->
 
 	<!---Container And Views --->
-	<div class="container">#renderView()#</div>
+	<div class="container">
+		#getInstance( "messagebox@cbmessagebox" ).renderIt()#
+		#renderView()#
+	</div>
 
 	<footer class="footer">
 		<p class="pull-right">
