@@ -15,10 +15,10 @@
     "bugs":"",
     "shortDescription":"",
     "contributors":[
-
+        
     ],
     "ignore":[
-
+        
     ],
     "devDependencies":{
         "testbox":"2.3.0"
@@ -36,5 +36,8 @@
         "testbox":"^2.3.0+00044",
         "cbmessagebox":"^2.1.0+00027",
         "cbvalidation":"^1.1.0+00012"
+    },
+    "testbox":{
+        "runner":"http://127.0.0.1:51006/tests/runner.cfm"
     }
 }

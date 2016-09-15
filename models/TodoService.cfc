@@ -6,6 +6,7 @@ component singleton accessors="true"{
     // Properties
     property name="populator" inject="wirebox:populator";
     property name="wirebox" inject="wirebox";
+    property name="datasource" inject="coldbox:datasource:todo";
 
     /**
      * Constructor
@@ -20,7 +21,7 @@ component singleton accessors="true"{
 	*/
 	function list(boolean isDone=false){
 		var queryObj = new query();
-		queryObj.setDatasource("todo");
+		queryObj.setDatasource(datasource.name);
 		queryObj.setName("qTodoList");
 		queryObj.addParam(name="isDone",value="#arguments.isDone#",cfsqltype="bit");
 		var result = queryObj.execute(sql="
@@ -47,7 +48,7 @@ component singleton accessors="true"{
 	*/
 	function save(required todo){
 		var queryObj = new query();
-		queryObj.setDatasource("todo");
+		queryObj.setDatasource(datasource.name);
 		queryObj.setName("qUpdateTodo");
 		queryObj.addParam(name="title",value="#arguments.todo.getTitle()#",cfsqltype="varchar");
 		queryObj.addParam(name="description",value="#arguments.todo.getDescription()#",cfsqltype="varchar");
@@ -92,7 +93,7 @@ component singleton accessors="true"{
 	*/
 	function delete(required numeric id){
 		var queryObj = new query();
-		queryObj.setDatasource("todo");
+		queryObj.setDatasource(datasource.name);
 		queryObj.setName("qDeleteTodo");
 		queryObj.addParam(name="id",value="#arguments.id#",cfsqltype="integer");
 		
@@ -110,7 +111,7 @@ component singleton accessors="true"{
 	*/
 	function get(required numeric id){
 		var queryObj = new query();
-		queryObj.setDatasource("todo");
+		queryObj.setDatasource(datasource.name);
 		queryObj.setName("qGetTodo");
 		queryObj.addParam(name="id",value="#arguments.id#",cfsqltype="integer");
 		var result = queryObj.execute(sql="
