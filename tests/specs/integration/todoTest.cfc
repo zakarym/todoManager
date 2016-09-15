@@ -32,7 +32,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 	
 	function run(){
 
-		describe( "todo Suite", function(){
+		xdescribe( "todo Suite", function(){
 
 			beforeEach(function( currentSpec ){
 				// Setup as a new ColdBox request for this suite, VERY IMPORTANT. ELSE EVERYTHING LOOKS LIKE THE SAME REQUEST.

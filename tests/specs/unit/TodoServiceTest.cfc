@@ -16,9 +16,10 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 
 		//create a mock
 		todo = getMockBox().prepareMock( createObject("component","root.models.Todo") );
-		mockWireBox = getMockBox().createEmptyMock("coldbox.system.ioc.injector").$("getInstance",todo);
+		mockWireBox.$("getInstance",todo);
 		model.$property( propertyName="wirebox", mock=mockWireBox ); 
 
+		model.$property( propertyName="datasource", mock={ name="todo" } );
 
 		objectPopulator = getMockBox().createMock("coldbox.system.core.dynamic.BeanPopulator");
 		model.$property( propertyName="populator", mock=objectPopulator ); 
