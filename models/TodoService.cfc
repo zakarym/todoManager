@@ -53,9 +53,8 @@ component singleton accessors="true"{
 		queryObj.addParam(name="description",value="#arguments.todo.getDescription()#",cfsqltype="varchar");
 		queryObj.addParam(name="isdone",value="#arguments.todo.getIsdone()#",cfsqltype="bit");
 		queryObj.addParam(name="status",value="#arguments.todo.getStatus()#",cfsqltype="integer");
-		queryObj.addParam(name="createdate",value="#arguments.todo.getCreatedate()#",cfsqltype="date");
-		queryObj.addParam(name="completiondate",value="#arguments.todo.getCompletiondate()#",cfsqltype="date");
-		queryObj.addParam(name="duedate",value="#arguments.todo.getDuedate()#",cfsqltype="date");
+		queryObj.addParam(name="completiondate",value="#arguments.todo.getCompletiondate()#",cfsqltype="date", null="#iif(len(arguments.todo.getCompletiondate()), DE("No"), DE("Yes"))#");
+		queryObj.addParam(name="duedate",value="#arguments.todo.getDuedate()#",cfsqltype="date", null="#iif(len(arguments.todo.getDuedate()), DE("No"), DE("Yes"))#");
 
 		if(! isNull( arguments.todo.getId() )) {
 			queryObj.addParam(name="id",value="#arguments.todo.getId()#",cfsqltype="integer");
@@ -79,7 +78,7 @@ component singleton accessors="true"{
 					INSERT INTO todo 
 					(title,description,isdone,status,createdate,completiondate,duedate)
 					VALUES
-					(:title,:description,:isdone,:status,:createdate,:completiondate,:duedate)
+					(:title,:description,:isdone,:status,getDate(),:completiondate,:duedate)
 					SELECT SCOPE_IDENTITY() as id
 					SET nocount OFF
 				");

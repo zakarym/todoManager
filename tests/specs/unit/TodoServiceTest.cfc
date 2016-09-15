@@ -52,9 +52,8 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 						.$( "getDescription", "This is a test todo" )
 						.$( "getIsdone", 0 )
 						.$( "getStatus", 1 )
-						.$( "getCreatedate", "2016-09-14" )
-						.$( "getCompletiondate", "2016-09-16" )
-						.$( "getDuedate", "2016-09-16" );
+						.$( "getCompletiondate" )
+						.$( "getDuedate" );
 
 					var oTodo = model.save( oTodo );
                 	expect( oTodo ).toBeTypeOf( "Numeric" );	
@@ -71,9 +70,8 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 						.$( "getDescription", "This is a test todo" )
 						.$( "getIsdone", 0 )
 						.$( "getStatus", 0 )
-						.$( "getCreatedate", "2016-09-14" )
-						.$( "getCompletiondate", "2016-09-16" )
-						.$( "getDuedate", "2016-09-16" );
+						.$( "getCompletiondate" )
+						.$( "getDuedate" );
 
 					var oTodo = model.save( oTodo );
 					var oTodo = model.delete( oTodo );
@@ -92,9 +90,8 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 						.$( "getDescription", "This is a test todo" )
 						.$( "getIsdone", 0 )
 						.$( "getStatus", 0 )
-						.$( "getCreatedate", "2016-09-14" )
-						.$( "getCompletiondate", "2016-09-16" )
-						.$( "getDuedate", "2016-09-16" );
+						.$( "getCompletiondate" )
+						.$( "getDuedate" );
 
 					var oTodoId = model.save( oTodo );
 
@@ -103,7 +100,6 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.Todo
 						.$( "getDescription", "This is an updated test todo" )
 						.$( "getIsdone", 1 )
 						.$( "getStatus", 1 )
-						.$( "getCreatedate", "2016-09-14" )
 						.$( "getCompletiondate", "2016-09-17" )
 						.$( "getDuedate", "2016-09-17" );
 
