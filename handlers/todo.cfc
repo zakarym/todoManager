@@ -40,6 +40,10 @@ component{
     function index( event, rc, prc ){
 		rc.todoResultSet = todoService.get(0);
     	prc.todolist = todoService.list();
+		event.renderData (
+			data = prc.todolist,
+			formats = "json,xml,html,pdf"
+		);
 		event.setView( "todo/index" );
 	}	
 
@@ -59,6 +63,7 @@ component{
 		if(isNumeric(rc.id)){
 			todoService.delete(rc.id);
 		}
+		messagebox.warn( "Todo deleted successfully" );
 		setNextEvent( "todo/index" );
 	}	
 
@@ -70,6 +75,10 @@ component{
 			rc.id=0;
 		}
 		rc.todoResultSet = todoService.get(rc.id);
+		event.renderData (
+			data = rc.todoResultSet,
+			formats = "json,xml,html,pdf"
+		);
 		event.setView( "todo/editor" );
 	}	
 
@@ -82,6 +91,7 @@ component{
 		populateModel(model=oTodo,momento=rc);
 		todoService.save(oTodo);
 		messagebox.warn( "Todo saved successfully" );
+		rc.todoResultSet = todoService.get(rc.id);
 		setNextEvent( "todo/index" );
 	}	
 

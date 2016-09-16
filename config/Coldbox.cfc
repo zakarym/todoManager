@@ -6,7 +6,7 @@
 		// coldbox directives
 		coldbox = {
 			//Application Setup
-			appName 				= "Your app name here",
+			appName 				= "todoManager",
 			eventName 				= "event",
 
 			//Development Settings
@@ -131,6 +131,13 @@
 		//Datasources
 		datasources = {
 			todo   = {name="todo"}
+		};
+
+		messagebox = {
+		    // The default HTMl template for emitting the messages
+			template 		= "/views/cbmessagebox/views/messagebox.cfm",
+		    // Override the internal styles, true to override
+			styleOverride 	= true
 		};
 
 	}

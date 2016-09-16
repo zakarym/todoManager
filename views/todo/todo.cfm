@@ -11,14 +11,14 @@
 			<h4 class="todo-group-item-title">
 				<a role="button" data-toggle="collapse" href="##todo#theId#" aria-expanded="true" aria-controls="todo#theId#">#todo.getTitle()#</a>
 				<cfif len(trim( todo.getDueDate() ))>
-					<cfset remainingDays = DateDiff("d", "#Dateformat(todo.getDueDate(),"mmm-dd-yyyy")#", "#Dateformat( now(),"mmm-dd-yyyy")#" )>
-					<cfif remainingDays eq 1>
-						<cfset remainingDays = "today">
+					<cfset remainingDays = DateDiff("d", "#Dateformat( now(),"mmm-dd-yyyy")#", "#Dateformat(todo.getDueDate(),"mmm-dd-yyyy")#" )>
+					<cfif remainingDays eq 0>
+						<span class="badge badge-danger">today</span>
+					<cfelseif remainingDays eq 2>
+						<span class="badge badge-warning">#remainingDays# days</span>
 					<cfelse>
-						<cfset remainingDays = remainingDays & " days">
+						<span class="badge badge-info">#remainingDays# days</span>
 					</cfif>
-
-					<span class="badge">#remainingDays#</span>
 				</cfif>
 			</h4>
 		</div>
@@ -26,9 +26,9 @@
 			<p class="todo-group-item-description">#todo.getDescription()#</p>
 
 			<ul class="todo-group-item-dates">
-				<li class="todo-group-item-date-created badge">Created: #Dateformat(todo.getCreateDate(),"mmm-dd-yyyy")# #timeformat(todo.getCreateDate(),"hh:mm:ss")#</li>
+				<li class="todo-group-item-date-created badge">Created: #Dateformat(todo.getCreateDate(),"mmm-dd-yyyy")#<!--- #timeformat(todo.getCreateDate(),"hh:mm:ss")# ---></li>
 				<cfif len(trim(todo.getDueDate()))><li class="todo-group-item-date-due badge">Due: #Dateformat(todo.getDueDate(),"mmm-dd-yyyy")#</li></cfif>
-				<cfif len(trim(todo.getDueDate()))><li class="todo-group-item-date-complete badge">Completed: #Dateformat(todo.getCompletionDate(),"mmm-dd-yyyy")#</li></cfif>
+				<cfif len(trim(todo.getCompletionDate()))><li class="todo-group-item-date-complete badge">Completed: #Dateformat(todo.getCompletionDate(),"mmm-dd-yyyy")#</li></cfif>
 			</ul>
 		</div>
 	</div>
