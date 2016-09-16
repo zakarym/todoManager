@@ -10,7 +10,14 @@
 			</label> 
 			<h4 class="todo-group-item-title">
 				<a role="button" data-toggle="collapse" href="##todo#theId#" aria-expanded="true" aria-controls="todo#theId#">#todo.getTitle()#</a>
-				<span class="badge">#todo.getDueDate()#</span>
+				<cfset remainingDays = DateDiff("d", "#Dateformat(todo.getCreateDate(),"mmm-dd-yyyy")#", "#Dateformat( now(),"mmm-dd-yyyy")#" )>
+				<cfif remainingDays eq 1>
+					<cfset remainingDays = "today">
+				<cfelse>
+					<cfset remainingDays = remainingDays & " days">
+				</cfif>
+
+				<span class="badge">#remainingDays#</span>
 			</h4>
 		</div>
 		<div class="todo-group-item-body collapse clearfix" id="todo#theId#" role="tododetail" aria-labelledby="todo#theId#">
