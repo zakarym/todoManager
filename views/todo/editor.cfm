@@ -38,6 +38,11 @@
 						<textarea id="description" name="description" cols="80" rows="5" class="form-control" placeholder="Todo Description">#rc.todoResultSet.getDescription()#</textarea>
 					</div>
 
+					<div class="form-group">
+						<label for="duedate" id="duedate_label" class="form-label">Due Date</label>
+						<input type="date" id="duedate" name="duedate" value="#rc.todoResultSet.getDuedate()#" class="form-control" placeholder="Due Date">
+					</div>
+
 					<button type="submit" class="btn btn-default btn-sm"><cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0>Add<cfelse>Edit</cfif></button>
 				</div>
 			</div>
