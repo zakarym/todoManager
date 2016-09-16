@@ -1,32 +1,53 @@
 <cfoutput>
-<h1>Add Todo Entry</h1>
-<div><a href="#event.buildLink('todo/index')#">View List</a></div>
-<form name="addEventForm" id="addEventForm" action="#event.buildLink('todo/save')#" method="post">
-	<table class>
-		<tr class="row">
-			<td class="col">Title:</td>
-			<td class="col">
-				<input type="text" id="title" name="title" value="#rc.todoResultSet.getTitle()#">
-				<input type="hidden" id="id" name="id" value="#rc.todoResultSet.getID()#">
 
-			</td>
-		</tr>
-		<tr class="row">
-			<td class="col">Description:</td>
-			<td class="col">
-				<textarea id="description" name="description" cols="80" rows="5">#rc.todoResultSet.getDescription()#</textarea>
-			</td>
-		</tr>
-		<tr class="row">
-			<td class="col">Completed</td>
-			<td class="col"><input type="checkbox" id="isdone" name="isdone" value="1"></td>
-		</tr>
-		<tr class="row">
-			<td class="col" colspan="2"><button ><cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0>Add<cfelse>Edit</cfif></button></td>
-			
-		</tr>
-	</table>
-</form>
+<cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0>
+<cfelse>
+	<h1>Edit Todo</h1>
+	<div class="todo-group">
+</cfif> 
+
+	<div class="todo-group-item todo-group-item-editor clearfix">
+		<form name="addEventForm" id="addEventForm" action="#event.buildLink('todo/save')#" method="post">
+			<div class="todo-group-item-details">
+				<div class="todo-group-item-header">
+					<cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0>
+						<span class="todo-group-item-complete">
+							<i class="glyphicon glyphicon-plus"></i>
+							<input type="hidden" name="isdone" value="0" id="isdone">
+						</span>
+					<cfelse>
+						<label for="isdone" class="todo-group-item-complete">
+							<input type="checkbox" name="isdone" value="#rc.todoResultSet.getIsdone()#" id="isdone">
+						</label> 
+					</cfif>
+					<h4 class="todo-group-item-title">
+						<a role="button" data-toggle="collapse" href="##todonew" aria-expanded="true" aria-controls="todonew">
+							<cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0>Add<cfelse>Edit</cfif> Todo
+						</a>
+					</h4>
+				</div>
+				<div class="todo-group-item-body collapse <cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0><cfelse>in</cfif> clearfix " id="todonew" role="tododetail" aria-labelledby="todonew">
+					<hr class="divider">
+					<div class="form-group">
+						<label for="title" id="title_label" class="form-label">Title</label>
+						<input type="text" id="title" name="title" value="#rc.todoResultSet.getTitle()#" class="form-control" placeholder="Todo Title">
+						<input type="hidden" id="id" name="id" value="#rc.todoResultSet.getID()#">
+					</div>
+					<div class="form-group">
+						<label for="description" id="description_label" class="form-label">Description</label>
+						<textarea id="description" name="description" cols="80" rows="5" class="form-control" placeholder="Todo Description">#rc.todoResultSet.getDescription()#</textarea>
+					</div>
+
+					<button type="submit" class="btn btn-default btn-sm"><cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0>Add<cfelse>Edit</cfif></button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+<cfif rc.todoResultSet.getID() eq 0 or len(trim(rc.todoResultSet.getID())) eq 0>
+<cfelse>
+	</div>
+</cfif> 
 
 </cfoutput>
 

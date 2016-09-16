@@ -2,16 +2,18 @@
 
 <cfset theId = todo.getID()>
 
-<div class="todo-group-item clearfix todo-group-item--#todo.getStatus()#">
-	<div class="todo-group-item-summary">
-		<label for="isdone" class="todo-group-item-complete">
-			<input type="checkbox" name="isdone" value="#todo.getIsDone()#" id="isdone">
-		</label> 
-		<h4 class="todo-group-item-title">
-			<a role="button" data-toggle="collapse" href="##todo#theId#" aria-expanded="true" aria-controls="todo#theId#">#todo.getTitle()#</a>
-			<span class="badge">#todo.getDueDate()#</span>
-		</h4>
-		<div class="todo-group-item-details collapse clearfix" id="todo#theId#" role="tododetail" aria-labelledby="todo#theId#">
+<div class="todo-group-item todo-group-item-#todo.getStatus()# clearfix">
+	<div class="todo-group-item-details">
+		<div class="todo-group-item-header">
+			<label for="isdone" class="todo-group-item-complete">
+				<input type="checkbox" name="isdone" value="#todo.getIsDone()#" id="isdone">
+			</label> 
+			<h4 class="todo-group-item-title">
+				<a role="button" data-toggle="collapse" href="##todo#theId#" aria-expanded="true" aria-controls="todo#theId#">#todo.getTitle()#</a>
+				<span class="badge">#todo.getDueDate()#</span>
+			</h4>
+		</div>
+		<div class="todo-group-item-body collapse clearfix" id="todo#theId#" role="tododetail" aria-labelledby="todo#theId#">
 			<p class="todo-group-item-description">#todo.getDescription()#</p>
 
 			<ul class="todo-group-item-dates">
@@ -23,11 +25,11 @@
 	</div>
 	<div class="todo-group-item-actions">
 		<form class="form-inline-block" method="post" action="#event.buildLink('todo/editor')#" name="editForm#theId#">
-			<button type="submit" class="btn btn-primary btn-xs">Edit</button>
+			<button type="submit" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-pencil"></i></button>
 			<input type="hidden" name="id" id="id" value="#theId#">
 		</form>
 		<form class="form-inline-block" method="post" action="#event.buildLink('todo/delete')#" name="editForm#theId#">
-			<button type="submit" class="btn btn-primary btn-xs">Delete</button>
+			<button type="submit" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></button>
 			<input type="hidden" name="id" id="id" value="#theId#">
 		</form>
 	</div>

@@ -38,6 +38,7 @@ component{
     * index  
     */
     function index( event, rc, prc ){
+		rc.todoResultSet = todoService.get(0);
     	prc.todolist = todoService.list();
 		event.setView( "todo/index" );
 	}	
