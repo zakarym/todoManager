@@ -48,6 +48,7 @@ component{
     */
     function status( event, rc, prc ){
 		event.setView( "todo/status" );
+		
 	}	
 
 	/**
