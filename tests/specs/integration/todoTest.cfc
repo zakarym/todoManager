@@ -39,6 +39,15 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 				setup();
 			});
 
+			aroundEach(function(struct spec, struct suite){
+				// execute the spec
+				transaction {
+					arguments.spec.body();
+
+					transaction action="rollback";	
+				}
+			});
+
 			it( "can show all todos", function(){
 				var event = execute( event="todo.index", renderResults=true );
 				// expectations go here.
@@ -62,9 +71,31 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/"{
 			});
 
 			it( "delete", function(){
+				queryExecute("
+						INSERT INTO todo 
+						(title,description)
+						VALUES
+						('Test Todo','Test Description')
+					",
+					{},
+					{datasource="todo",result = "result"});
+				var id = result.generatedkey;
+				getRequestContext().setValue( "id", id);
+
 				var event = execute( event="todo.delete", renderResults=true );
+
+				var emptyResult = queryExecute("
+						SELECT * from todo
+						WHERE id = #id#
+					",
+					{},
+					{datasource="todo"});
+
+				var rc = event.getCollection();
 				// expectations go here.
-				expect( false ).toBeTrue();
+				expect( rc ).toHaveKey("setNextEvent_event");
+				expect( rc.setNextEvent_event ).toBe("todo/index");
+				expect( emptyResult ).toBeEmpty;
 			});
 
 			it( "editor", function(){

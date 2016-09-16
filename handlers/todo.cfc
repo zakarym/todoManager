@@ -53,7 +53,7 @@ component{
     * delete  
     */
     function delete( event, rc, prc ){
-		event.paramValue( "rc.id", 0);
+		event.paramValue( "id", 0);
 		if(isNumeric(rc.id)){
 			todoService.delete(rc.id);
 		}

@@ -70,16 +70,13 @@ component singleton accessors="true"{
 		} else {
 
 			var result = queryObj.execute(sql="
-					SET nocount ON
-					INSERT INTO todo 
-					(title,description,isdone,status,createdate,completiondate,duedate)
-					VALUES
-					(:title,:description,:isdone,:status,getDate(),:completiondate,:duedate)
-					SELECT SCOPE_IDENTITY() as id
-					SET nocount OFF
-				");
+				INSERT INTO todo 
+				(title,description,isdone,status,createdate,completiondate,duedate)
+				VALUES
+				(:title,:description,:isdone,:status,getDate(),:completiondate,:duedate)
+			");
 
-			return result.getResult().id[1];
+			return result.getPrefix().generatedkey;
 		}
 	}
 
